@@ -1,9 +1,12 @@
+import { PopupHeader } from '@components/header/PopupHeader'
 import styled from 'styled-components'
 
 export const Popup = () => {
   return (
     <PopupContainer>
-      <PopupContent></PopupContent>
+      <PopupContent>
+        <PopupHeader headerTitle="10%" headerSubTitle="rabatu" headerText="za zapis do newslettera" />
+      </PopupContent>
     </PopupContainer>
   )
 }
