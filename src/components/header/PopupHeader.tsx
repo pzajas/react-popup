@@ -56,5 +56,5 @@ const HeaderText = styled.div`
   text-align: center;
   max-width: 100%;
   word-wrap: break-word;
-  margin-top: 1rem;
+  margin: 1rem 0rem 2rem 0rem;
 `
