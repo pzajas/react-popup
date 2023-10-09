@@ -1,6 +1,8 @@
 import { PopupHeader } from '@components/header/PopupHeader'
-import styled from 'styled-components'
 import { PopupForm } from './PopupForm'
+import { Countdown } from './PopupCounter'
+
+import { styled } from 'styled-components'
 
 export const Popup = () => {
   return (
@@ -8,6 +10,7 @@ export const Popup = () => {
       <PopupContent>
         <PopupHeader headerTitle="10%" headerSubTitle="rabatu" headerText="za zapis do newslettera" />
         <PopupForm />
+        <Countdown />
       </PopupContent>
     </PopupContainer>
   )
