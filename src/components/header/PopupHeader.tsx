@@ -1,4 +1,4 @@
-import { CloseButton } from '@elements/buttons/CloseButton'
+import { PrimaryText } from '@elements/PrimaryText'
 import styled from 'styled-components'
 
 interface IPopupHeader {
@@ -15,7 +15,7 @@ export const PopupHeader = ({ headerTitle, headerSubTitle, headerText }: IPopupH
         <HeaderSubTitle>{headerSubTitle}</HeaderSubTitle>
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <HeaderText>{headerText}</HeaderText>
+          <PrimaryText text={headerText} />
         </div>
       </div>
     </HeaderWrapper>
@@ -48,13 +48,4 @@ const HeaderSubTitle = styled.span`
   width: auto;
   word-wrap: break-word;
   text-align: center;
-`
-
-const HeaderText = styled.div`
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  max-width: 100%;
-  word-wrap: break-word;
-  margin: 1rem 0rem 2rem 0rem;
 `

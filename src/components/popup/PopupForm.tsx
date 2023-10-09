@@ -70,6 +70,7 @@ const SubmitButton = styled.button`
   text-transform: uppercase;
   border-radius: 0.2rem;
   width: calc(100% - 2rem);
+  margin-bottom: 2rem;
   cursor: pointer;
 
   &:hover {
