@@ -1,11 +1,13 @@
 import { PopupHeader } from '@components/header/PopupHeader'
 import styled from 'styled-components'
+import { PopupForm } from './PopupForm'
 
 export const Popup = () => {
   return (
     <PopupContainer>
       <PopupContent>
         <PopupHeader headerTitle="10%" headerSubTitle="rabatu" headerText="za zapis do newslettera" />
+        <PopupForm />
       </PopupContent>
     </PopupContainer>
   )
@@ -23,7 +25,7 @@ const PopupContainer = styled.div`
 `
 
 const PopupContent = styled.div`
-  width: calc(100%);
+  /* width: calc(100%);*/
   height: calc(100%);
   background-color: white;
   border-radius: 0.3rem;
