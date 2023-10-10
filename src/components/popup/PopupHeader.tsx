@@ -30,10 +30,11 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 3rem;
+  margin-top: 1.7rem;
 `
 
 const HeaderTitle = styled.span`
-  font-size: 8rem;
+  font-size: 12.8rem;
   font-weight: 900;
   width: auto;
   height: 8rem;
@@ -43,7 +44,7 @@ const HeaderTitle = styled.span`
 `
 
 const HeaderSubTitle = styled.span`
-  font-size: 4rem;
+  font-size: 6.4rem;
   font-weight: 800;
   width: auto;
   word-wrap: break-word;
