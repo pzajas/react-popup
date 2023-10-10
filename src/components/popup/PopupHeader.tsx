@@ -11,7 +11,9 @@ export const PopupHeader = ({ headerTitle, headerSubTitle, headerText }: IPopupH
   return (
     <HeaderWrapper>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <HeaderTitle>{headerTitle}</HeaderTitle>
+        <HeaderTitle>
+          {headerTitle} <div>%</div>
+        </HeaderTitle>
         <HeaderSubTitle>{headerSubTitle}</HeaderSubTitle>
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -37,10 +39,18 @@ const HeaderTitle = styled.span`
   font-size: 12.8rem;
   font-weight: 900;
   width: auto;
-  height: 8rem;
+  height: 9rem;
   display: flex;
   align-items: center;
   word-wrap: break-word;
+  position: relative;
+
+  div {
+    position: absolute;
+    bottom: -20%;
+    right: 30%;
+    font-size: 5rem;
+  }
 `
 
 const HeaderSubTitle = styled.span`
