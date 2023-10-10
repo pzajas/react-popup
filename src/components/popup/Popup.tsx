@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import { PopupHeader } from './PopupHeader'
 import { PopupForm } from './PopupForm'
 import { Countdown } from './PopupCounter'
 import { styled } from 'styled-components'
+import { PopupCloseScreen } from './PopupCloseScreen'
 
 export const Popup = ({ setIsModalVisible }) => {
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
+  const [userEmail, setUserEmail] = useState('')
+
   const handleCloseModal = () => {
     setIsModalVisible(false)
   }
@@ -12,9 +17,17 @@ export const Popup = ({ setIsModalVisible }) => {
     <PopupContainer>
       <PopupContent>
         <CloseButton onClick={handleCloseModal}>X</CloseButton>
-        <PopupHeader headerTitle="10%" headerSubTitle="rabatu" headerText="za zapis do newslettera" />
-        <PopupForm setIsModalVisible={setIsModalVisible} />
-        <Countdown />
+        {!isFormSubmitted ? (
+          <>
+            <PopupHeader headerTitle="10" headerSubTitle="rabatu" headerText="za zapis do newslettera" />
+            <PopupForm setIsFormSubmitted={setIsFormSubmitted} setUserEmail={setUserEmail} />
+            <Countdown />
+          </>
+        ) : (
+          <>
+            <PopupCloseScreen setIsModalVisible={setIsModalVisible} userEmail={userEmail} />
+          </>
+        )}
       </PopupContent>
     </PopupContainer>
   )

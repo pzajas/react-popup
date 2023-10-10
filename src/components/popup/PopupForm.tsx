@@ -8,7 +8,7 @@ import { PrimarySpinner } from '@elements/PrimarySpinner'
 import { InputWithIcon } from '@elements/PrimaryInput'
 import { PrimaryCheckbox } from '@elements/PrimaryCheckbox'
 
-export const PopupForm = ({ setIsModalVisible }) => {
+export const PopupForm = ({ setIsFormSubmitted, setUserEmail }) => {
   const [loading, setLoading] = useState(false)
   const [color] = useState('#ffffff')
 
@@ -18,11 +18,12 @@ export const PopupForm = ({ setIsModalVisible }) => {
   })
 
   const onSubmit = (data) => {
+    setUserEmail(data.email)
     if (data.username && data.email) {
       setLoading(true)
 
       setTimeout(() => {
-        setIsModalVisible(false)
+        setIsFormSubmitted(true)
       }, 2000)
     }
   }
