@@ -13,6 +13,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;

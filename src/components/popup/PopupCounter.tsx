@@ -35,7 +35,7 @@ export const Countdown = () => {
 
   return (
     <div>
-      <PrimaryText text={'ważne przez'} />
+      <StyledPrimaryText text={'ważne przez'} />
       <CountdownContainer>
         <TimeCard value={remainingTime.hours} text={'godzin'} />
         <TimeCard value={remainingTime.minutes} text={'minut'} />
@@ -48,8 +48,12 @@ export const Countdown = () => {
 const CountdownContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #2351ff;
+  height: 9.1rem;
+  width: 100%;
+`
+const StyledPrimaryText = styled(PrimaryText)`
+  margin: 5.2rem 0rem 1.7rem 0rem;
 `
