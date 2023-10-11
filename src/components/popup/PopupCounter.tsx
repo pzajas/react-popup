@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { styled } from 'styled-components'
 import { TimeCard } from './TimeCard'
 import { PrimaryText } from '@elements/PrimaryText'
+import { styles } from '../../styles/globalStyles'
 
 interface ICountdown {
   className?: string
@@ -54,7 +55,7 @@ const CountdownContainer = styled.div`
   justify-content: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: #2351ff;
+  color: ${styles.colors.blue.dark};
   height: 9.1rem;
   width: 100%;
 `

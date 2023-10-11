@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { styled } from 'styled-components'
+import { styles } from '../../styles/globalStyles'
 
 export const PopupCloseScreen = ({ setIsModalVisible, userEmail }) => {
   const [countdown, setCountdown] = useState(4)
@@ -36,7 +37,7 @@ const CloseScreenContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #2351ff;
+  color: ${styles.colors.blue.dark};
   font-family: 'Poppins', sans-serif;
 
   div {
@@ -45,7 +46,7 @@ const CloseScreenContainer = styled.div`
     margin-bottom: 4rem;
     font-size: 1.2rem;
     font-weight: 400;
-    color: grey;
+    color: ${styles.colors.grey};
   }
 `
 const StyledThankYou = styled.p`

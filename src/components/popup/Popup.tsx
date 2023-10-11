@@ -6,6 +6,7 @@ import { styled } from 'styled-components'
 import { PopupCloseScreen } from './PopupCloseScreen'
 import { PrimaryText } from '@elements/PrimaryText'
 import { AiOutlineClose } from 'react-icons/ai'
+import { styles } from '../../styles/globalStyles'
 
 export const Popup = ({ setIsModalVisible }) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -52,7 +53,7 @@ const PopupContainer = styled.div`
 const PopupContent = styled.div`
   height: calc(100vh - 1.9rem);
   width: calc(100vw - 1.9rem);
-  background-color: white;
+  background-color: ${styles.colors.white};
   border-radius: 0.3rem;
   position: relative;
   overflow: hidden;
@@ -70,15 +71,14 @@ const CloseButton = styled.button`
   right: 0.8rem;
   width: 4rem;
   height: 4rem;
-  background-color: #d4dcfc;
-  color: #2351ff;
+  background-color: ${styles.colors.blue.light};
+  color: ${styles.colors.blue.dark};
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
 
   @media (min-width: 1536px) and (min-height: 960px) {
     position: absolute;
-
     top: 3rem;
     right: 4rem;
   }

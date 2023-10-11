@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { styled } from 'styled-components'
 import { FaCheck } from 'react-icons/fa'
+import { styles } from '../styles/globalStyles'
 
 const CustomCheckbox = ({ checked, onChange }) => {
   return (
@@ -34,7 +35,7 @@ const Checkbox = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
-  color: #2351ff;
+  color: ${styles.colors.blue.dark};
   font-size: 1.6rem;
   line-height: 2.4rem;
   font-weight: 400;
@@ -80,12 +81,12 @@ const StyledCheckbox = styled.div`
   height: 2.4rem;
   margin-top: 0.5rem;
   border-radius: 0.2rem;
-  background-color: #b9c4fc;
+  background-color: ${styles.colors.blue.light};
   transition: background-color 0.3s ease-in-out;
 
   svg {
     visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
-    color: #2351ff;
+    color: ${styles.colors.blue.dark};
   }
 
   @media (min-width: 1536px) and (min-height: 960px) {
