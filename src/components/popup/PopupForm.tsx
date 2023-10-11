@@ -7,10 +7,11 @@ import { userSchema } from '../../schemas/userSchema'
 import { PrimarySpinner } from '@elements/PrimarySpinner'
 import { InputWithIcon } from '@elements/PrimaryInput'
 import { PrimaryCheckbox } from '@elements/PrimaryCheckbox'
+import { styles } from '../../styles/globalStyles'
 
 export const PopupForm = ({ setIsFormSubmitted, setUserEmail }) => {
   const [loading, setLoading] = useState(false)
-  const [color] = useState('#ffffff')
+  const [color] = useState(styles.colors.white)
 
   const { handleSubmit, control } = useForm({
     mode: 'all',
@@ -90,11 +91,11 @@ const Container = styled.div`
 const SubmitButton = styled.button`
   font-family: 'Poppins', sans-serif;
   padding: 1rem 2rem;
-  background-color: #2351ff;
+  background-color: ${styles.colors.blue.dark};
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 2.1rem;
-  color: white;
+  color: ${styles.colors.white};
   border: none;
   text-transform: uppercase;
   border-radius: 0.2rem;
@@ -102,10 +103,6 @@ const SubmitButton = styled.button`
   height: 5.4rem;
   margin: 4rem 1.8rem 2rem 1.8rem;
   cursor: pointer;
-
-  &:hover {
-    background-color: #1a40e5;
-  }
 
   @media (min-width: 1536px) and (min-height: 960px) {
     width: 32rem;

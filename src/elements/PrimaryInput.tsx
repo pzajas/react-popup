@@ -2,6 +2,7 @@ import { cloneElement } from 'react'
 import { Controller } from 'react-hook-form'
 import { BsExclamationLg } from 'react-icons/bs'
 import { styled } from 'styled-components'
+import { styles } from '../styles/globalStyles'
 
 export const InputWithIcon = ({ name, control, defaultValue, placeholder, icon }) => {
   return (
@@ -34,7 +35,7 @@ const FormInput = styled.div`
     left: 1.4rem;
     font-size: 2.2rem;
     transform: translateY(-50%);
-    color: ${(props) => (props.hasError ? 'red' : '#c7cfea')};
+    color: ${(props) => (props.hasError ? 'red' : styles.colors.blue.light)};
     margin-right: 3rem;
   }
 

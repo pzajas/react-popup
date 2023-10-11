@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { styles } from '../../styles/globalStyles'
 
 interface IPopupHeader {
   headerTitle: string
@@ -21,8 +22,8 @@ export const PopupHeader = ({ headerTitle, headerSubTitle }: IPopupHeader) => {
 const Container = styled.div`
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  color: #2351ff;
-  background-color: white;
+  color: ${styles.colors.blue.dark};
+  background-color: ${styles.colors.white};
   display: flex;
   justify-content: center;
   padding-top: 3rem;

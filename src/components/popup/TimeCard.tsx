@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { styles } from '../../styles/globalStyles'
 
 export const TimeCard = ({ value, text }) => {
   return (
@@ -18,7 +19,7 @@ const Card = styled.div`
   margin: 0rem 0.5rem;
   width: 8.16rem;
   height: 9.1rem;
-  background-color: #e9eeff;
+  background-color: ${styles.colors.blue.light};
   border-radius: 0.5rem;
   font-size: 4.6rem;
   font-weight: 600;
@@ -35,7 +36,7 @@ const Card = styled.div`
     width: 5.7rem;
     font-size: 2.4rem;
     line-height: 3.6rem;
-    background-color: #3f68ff;
-    color: white;
+    background-color: ${styles.colors.blue.dark};
+    color: ${styles.colors.white};
   }
 `
