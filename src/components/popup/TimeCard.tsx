@@ -29,4 +29,13 @@ const Card = styled.div`
     font-weight: 400;
     line-height: 1.8rem;
   }
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    height: 6.4rem;
+    width: 5.7rem;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    background-color: #3f68ff;
+    color: white;
+  }
 `

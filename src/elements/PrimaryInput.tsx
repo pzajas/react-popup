@@ -34,7 +34,7 @@ const FormInput = styled.div`
     left: 1.4rem;
     font-size: 2.2rem;
     transform: translateY(-50%);
-    color: #c7cfea;
+    color: ${(props) => (props.hasError ? 'red' : '#c7cfea')};
     margin-right: 3rem;
   }
 
@@ -58,11 +58,15 @@ const FormInput = styled.div`
     box-sizing: border-box;
     width: calc(100vw - 3.6rem);
     outline: none;
-    color: black;
+    color: ${(props) => (props.hasError ? 'red' : 'black')};
 
     ::placeholder {
       color: red;
       text-align: left;
+    }
+
+    @media (min-width: 1536px) and (min-height: 960px) {
+      width: 32rem;
     }
   }
 `
