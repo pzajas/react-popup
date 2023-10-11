@@ -31,8 +31,9 @@ export const PrimaryCheckbox = () => {
 }
 
 const Checkbox = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
   color: #2351ff;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -41,16 +42,28 @@ const Checkbox = styled.div`
   width: calc(100vw - 3.6rem);
 
   span {
-    padding-left: 1rem;
     text-align: justify;
+  }
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    font-size: 1rem;
+    margin: 0;
+    width: 32rem;
+    line-height: 1.5rem;
+
+    span {
+      z-index: 999;
+    }
   }
 `
 
 const CustomCheckboxContainer = styled.label`
+  grid-column: 1;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   font-size: 1.6rem;
+  margin-right: 1rem;
 `
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -65,12 +78,20 @@ const StyledCheckbox = styled.div`
   align-items: center;
   width: 2.4rem;
   height: 2.4rem;
+  margin-top: 0.5rem;
   border-radius: 0.2rem;
   background-color: #b9c4fc;
   transition: background-color 0.3s ease-in-out;
 
   svg {
     visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
-    color: 2351ff;
+    color: #2351ff;
+  }
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-top: 0.2rem;
+    z-index: 999;
   }
 `

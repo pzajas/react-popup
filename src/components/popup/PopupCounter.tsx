@@ -3,7 +3,11 @@ import { styled } from 'styled-components'
 import { TimeCard } from './TimeCard'
 import { PrimaryText } from '@elements/PrimaryText'
 
-export const Countdown = () => {
+interface ICountdown {
+  className?: string
+}
+
+export const Countdown = ({ className }: ICountdown) => {
   const [remainingTime, setRemainingTime] = useState(getRemainingTime())
 
   function getRemainingTime() {
@@ -34,7 +38,7 @@ export const Countdown = () => {
   }, [])
 
   return (
-    <div>
+    <div className={className}>
       <StyledPrimaryText text={'ważne przez'} />
       <CountdownContainer>
         <TimeCard value={remainingTime.hours} text={'godzin'} />
@@ -56,4 +60,9 @@ const CountdownContainer = styled.div`
 `
 const StyledPrimaryText = styled(PrimaryText)`
   margin: 5.2rem 0rem 1.7rem 0rem;
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    text-align: right;
+    margin-right: 0.8rem;
+  }
 `

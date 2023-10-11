@@ -67,6 +67,12 @@ const FormContainer = styled.form`
   flex-direction: column;
   width: 100%;
   font-family: 'Poppins', sans-serif;
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    align-items: flex-start;
+    margin-left: 4rem;
+    width: 32rem;
+  }
 `
 
 const Container = styled.div`
@@ -75,6 +81,10 @@ const Container = styled.div`
   justify-content: center;
   width: calc(100% - 2rem);
   align-items: center;
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    align-items: flex-start;
+  }
 `
 
 const SubmitButton = styled.button`
@@ -89,11 +99,17 @@ const SubmitButton = styled.button`
   text-transform: uppercase;
   border-radius: 0.2rem;
   width: calc(100vw - 3.6rem);
-  height: 5.4;
+  height: 5.4rem;
   margin: 4rem 1.8rem 2rem 1.8rem;
   cursor: pointer;
 
   &:hover {
     background-color: #1a40e5;
+  }
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    width: 32rem;
+    margin-top: 8rem;
+    margin-left: 0;
   }
 `

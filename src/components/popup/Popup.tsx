@@ -4,6 +4,8 @@ import { PopupForm } from './PopupForm'
 import { Countdown } from './PopupCounter'
 import { styled } from 'styled-components'
 import { PopupCloseScreen } from './PopupCloseScreen'
+import { PrimaryText } from '@elements/PrimaryText'
+import { AiOutlineClose } from 'react-icons/ai'
 
 export const Popup = ({ setIsModalVisible }) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -16,12 +18,15 @@ export const Popup = ({ setIsModalVisible }) => {
   return (
     <PopupContainer>
       <PopupContent>
-        <CloseButton onClick={handleCloseModal}>X</CloseButton>
+        <CloseButton onClick={handleCloseModal}>
+          <AiOutlineClose />
+        </CloseButton>
         {!isFormSubmitted ? (
           <>
-            <PopupHeader headerTitle="10" headerSubTitle="rabatu" headerText="za zapis do newslettera" />
+            <PopupHeader headerTitle="10" headerSubTitle="rabatu" />
+            <StyledPrimaryText text="za zapis do newslettera" />
             <PopupForm setIsFormSubmitted={setIsFormSubmitted} setUserEmail={setUserEmail} />
-            <Countdown />
+            <StyledCountdown />
           </>
         ) : (
           <>
@@ -47,17 +52,22 @@ const PopupContainer = styled.div`
 const PopupContent = styled.div`
   height: calc(100vh - 1.9rem);
   width: calc(100vw - 1.9rem);
-
   background-color: white;
   border-radius: 0.3rem;
   position: relative;
+  overflow: hidden;
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    width: 81.8rem;
+    height: 52rem;
+  }
 `
 
 const CloseButton = styled.button`
   position: absolute;
   text-align: center;
-  top: 1.8rem;
-  right: 1.8rem;
+  top: 0.8rem;
+  right: 0.8rem;
   width: 4rem;
   height: 4rem;
   background-color: #d4dcfc;
@@ -66,7 +76,28 @@ const CloseButton = styled.button`
   border-radius: 0.3rem;
   cursor: pointer;
 
-  &:hover {
-    background-color: #cc0000;
+  @media (min-width: 1536px) and (min-height: 960px) {
+    position: absolute;
+
+    top: 3rem;
+    right: 4rem;
+  }
+`
+
+const StyledPrimaryText = styled(PrimaryText)`
+  @media (min-width: 1536px) and (min-height: 960px) {
+    font-size: 1.6rem;
+    margin-left: 4rem;
+    margin-top: 0%;
+    text-align: left;
+  }
+`
+
+const StyledCountdown = styled(Countdown)`
+  @media (min-width: 1536px) and (min-height: 960px) {
+    position: absolute;
+
+    bottom: 1.5rem;
+    right: 4rem;
   }
 `
