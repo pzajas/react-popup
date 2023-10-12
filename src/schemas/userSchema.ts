@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 
 export const userSchema = Yup.object().shape({
-  username: Yup.string().required('Nieprawidłowa nazwa.'),
+  username: Yup.string().required('Nieprawidłowa nazwa użytkownika.'),
   email: Yup.string()
     .matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/, 'Nieprawidłowy email')
     .required('Proszę podać poprawny adres email.'),

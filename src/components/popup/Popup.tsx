@@ -1,45 +1,36 @@
-import { useState } from 'react'
-import { PopupHeader } from './PopupHeader'
-import { PopupForm } from './PopupForm'
-import { Countdown } from './PopupCounter'
-import { styled } from 'styled-components'
-import { PopupCloseScreen } from './PopupCloseScreen'
-import { PrimaryText } from '@elements/PrimaryText'
+import { ReactNode, Dispatch } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import { styles } from '../../styles/globalStyles'
+import { styled } from 'styled-components'
+import { styles } from '../../styles/styles'
+import backgroundImage from '../../assets/background.png'
 
-export const Popup = ({ setIsModalVisible }) => {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
-  const [userEmail, setUserEmail] = useState('')
+interface IPopup {
+  setIsModalVisible: Dispatch<React.SetStateAction<boolean>>
+}
 
+interface IPopup {
+  setIsModalVisible: Dispatch<React.SetStateAction<boolean>>
+  children: ReactNode
+}
+
+export const Popup = ({ setIsModalVisible, children }: IPopup) => {
   const handleCloseModal = () => {
     setIsModalVisible(false)
   }
 
   return (
-    <PopupContainer>
+    <PopupWrapper>
       <PopupContent>
-        <CloseButton onClick={handleCloseModal}>
-          <AiOutlineClose />
-        </CloseButton>
-        {!isFormSubmitted ? (
-          <>
-            <PopupHeader headerTitle="10" headerSubTitle="rabatu" />
-            <StyledPrimaryText text="za zapis do newslettera" />
-            <PopupForm setIsFormSubmitted={setIsFormSubmitted} setUserEmail={setUserEmail} />
-            <StyledCountdown />
-          </>
-        ) : (
-          <>
-            <PopupCloseScreen setIsModalVisible={setIsModalVisible} userEmail={userEmail} />
-          </>
-        )}
+        <CloseButtonWrapper onClick={handleCloseModal}>
+          <CloseIcon />
+        </CloseButtonWrapper>
+        {children}
       </PopupContent>
-    </PopupContainer>
+    </PopupWrapper>
   )
 }
 
-const PopupContainer = styled.div`
+const PopupWrapper = styled.div`
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -53,29 +44,39 @@ const PopupContainer = styled.div`
 const PopupContent = styled.div`
   height: calc(100vh - 1.9rem);
   width: calc(100vw - 1.9rem);
-  background-color: ${styles.colors.white};
+
   border-radius: 0.3rem;
   position: relative;
   overflow: hidden;
+  background-color: ${styles.colors.white};
 
   @media (min-width: 1536px) and (min-height: 960px) {
     width: 81.8rem;
     height: 52rem;
+
+    background-image: url(${backgroundImage});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 `
 
-const CloseButton = styled.button`
+const CloseButtonWrapper = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  text-align: center;
+  border: none;
+  cursor: pointer;
+
   top: 0.8rem;
   right: 0.8rem;
   width: 4rem;
   height: 4rem;
-  background-color: ${styles.colors.blue.light};
-  color: ${styles.colors.blue.dark};
-  border: none;
   border-radius: 0.3rem;
-  cursor: pointer;
+
+  background-color: ${styles.colors.blue.medium};
+  color: ${styles.colors.blue.dark};
 
   @media (min-width: 1536px) and (min-height: 960px) {
     position: absolute;
@@ -84,20 +85,7 @@ const CloseButton = styled.button`
   }
 `
 
-const StyledPrimaryText = styled(PrimaryText)`
-  @media (min-width: 1536px) and (min-height: 960px) {
-    font-size: 1.6rem;
-    margin-left: 4rem;
-    margin-top: 0%;
-    text-align: left;
-  }
-`
-
-const StyledCountdown = styled(Countdown)`
-  @media (min-width: 1536px) and (min-height: 960px) {
-    position: absolute;
-
-    bottom: 1.5rem;
-    right: 4rem;
-  }
+const CloseIcon = styled(AiOutlineClose)`
+  width: 1.8rem;
+  height: 1.8rem;
 `

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { styles } from '../styles/globalStyles'
+import { styles } from '../styles/styles'
 
 interface IPrimaryText {
   text: string
@@ -11,12 +11,14 @@ export const PrimaryText = ({ text, className }: IPrimaryText) => {
 }
 
 const StyledPrimaryText = styled.div`
+  text-transform: uppercase;
+  text-align: center;
+  word-wrap: break-word;
+
   font-size: 1.6rem;
   font-weight: 500;
-  text-align: center;
   max-width: 100%;
-  word-wrap: break-word;
   margin: 2.5rem 0rem 5rem 0rem;
-  text-transform: uppercase;
+
   color: ${styles.colors.blue.dark};
 `

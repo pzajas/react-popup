@@ -1,9 +1,21 @@
 import { useState } from 'react'
 import { styled } from 'styled-components'
 import { FaCheck } from 'react-icons/fa'
-import { styles } from '../styles/globalStyles'
+import { styles } from '../styles/styles'
 
-const CustomCheckbox = ({ checked, onChange }) => {
+interface IPrimaryCheckbox {
+  checkboxMessage: string
+}
+interface ICustomCheckbox {
+  checked: boolean
+  onChange: () => void
+}
+
+interface IStyledCheckbox {
+  checked: boolean
+}
+
+const CustomCheckbox = ({ checked, onChange }: ICustomCheckbox) => {
   return (
     <CustomCheckboxContainer>
       <HiddenCheckbox checked={checked} onChange={onChange} />
@@ -14,7 +26,7 @@ const CustomCheckbox = ({ checked, onChange }) => {
   )
 }
 
-export const PrimaryCheckbox = () => {
+export const PrimaryCheckbox = ({ checkboxMessage }: IPrimaryCheckbox) => {
   const [isChecked, setIsChecked] = useState(false)
 
   const handleCheckboxChange = () => {
@@ -24,9 +36,7 @@ export const PrimaryCheckbox = () => {
   return (
     <Checkbox>
       <CustomCheckbox checked={isChecked} onChange={handleCheckboxChange} />
-      <span>
-        Zgadzam się na otrzymywanie drogą mailową wiadomości marketingowych oraz akceptuję politykę prywatności.
-      </span>
+      <span>{checkboxMessage}</span>
     </Checkbox>
   )
 }
@@ -35,12 +45,14 @@ const Checkbox = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
-  color: ${styles.colors.blue.dark};
+
   font-size: 1.6rem;
   line-height: 2.4rem;
   font-weight: 400;
   margin: 2.3rem 3.6rem 0rem 3.6rem;
   width: calc(100vw - 3.6rem);
+
+  color: ${styles.colors.blue.dark};
 
   span {
     text-align: justify;
@@ -59,30 +71,34 @@ const Checkbox = styled.div`
 `
 
 const CustomCheckboxContainer = styled.label`
-  grid-column: 1;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+
+  grid-column: 1;
   font-size: 1.6rem;
   margin-right: 1rem;
 `
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
-  opacity: 0;
   cursor: pointer;
+
+  opacity: 0;
 `
 
-const StyledCheckbox = styled.div`
+const StyledCheckbox = styled.div<IStyledCheckbox>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s ease-in-out;
+
   width: 2.4rem;
   height: 2.4rem;
   margin-top: 0.5rem;
   border-radius: 0.2rem;
+
   background-color: ${styles.colors.blue.light};
-  transition: background-color 0.3s ease-in-out;
 
   svg {
     visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
