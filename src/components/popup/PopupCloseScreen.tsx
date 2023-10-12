@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react'
 import { styled } from 'styled-components'
-import { styles } from '../../styles/globalStyles'
+import { styles } from '../../styles/styles'
 
-export const PopupCloseScreen = ({ setIsModalVisible, userEmail }) => {
-  const [countdown, setCountdown] = useState(4)
+interface IPopupCloseScreen {
+  setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+  userEmail: string
+}
+
+export const PopupCloseScreen = ({ setIsModalVisible, userEmail }: IPopupCloseScreen) => {
+  const countdownDuration = 4
+  const [countdown, setCountdown] = useState(countdownDuration)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -18,7 +24,7 @@ export const PopupCloseScreen = ({ setIsModalVisible, userEmail }) => {
   }, [countdown, setIsModalVisible])
 
   return (
-    <CloseScreenContainer>
+    <PopupCloseScreenContainer>
       <StyledThankYou>Dziękujemy</StyledThankYou>
 
       <StyledNewsletterInfo>
@@ -26,19 +32,20 @@ export const PopupCloseScreen = ({ setIsModalVisible, userEmail }) => {
       </StyledNewsletterInfo>
 
       <div>Zamknięcie za {countdown} sekund</div>
-    </CloseScreenContainer>
+    </PopupCloseScreenContainer>
   )
 }
 
-const CloseScreenContainer = styled.div`
+const PopupCloseScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  text-align: left;
+  height: 100%;
+  margin-left: 4rem;
+
   color: ${styles.colors.blue.dark};
-  font-family: 'Poppins', sans-serif;
 
   div {
     position: absolute;
@@ -48,17 +55,24 @@ const CloseScreenContainer = styled.div`
     font-weight: 400;
     color: ${styles.colors.grey};
   }
+
+  @media (min-width: 1536px) and (min-height: 960px) {
+    background-color: white;
+  }
 `
+
 const StyledThankYou = styled.p`
+  text-transform: uppercase;
+
   font-size: 4.8rem;
   font-weight: 800;
   line-height: 7.2rem;
   margin-bottom: 3.8rem;
-  text-transform: uppercase;
 `
 
 const StyledNewsletterInfo = styled.p`
   position: relative;
+
   font-size: 1.6rem;
   font-weight: 400;
   width: 30rem;
